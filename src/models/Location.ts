@@ -14,29 +14,9 @@ interface IToken {
     planId: string;
 }
 
-interface ITrigger {
-    triggerData: {
-        id: string;
-        key: string;
-        filters: string[];
-        eventType: string;
-        targetUrl: string;
-    };
-    meta: {
-        key: string;
-        version: string;
-    };
-    extras: {
-        locationId: string;
-        workflowId: string;
-        companyId: string;
-    }
-}
-
 interface ILocation {
     locationId: string;
     token: IToken;
-    triggers: ITrigger[];
 }
 
 const tokenSchema = new Schema<IToken>({
@@ -53,29 +33,9 @@ const tokenSchema = new Schema<IToken>({
     planId: String
 });
 
-const triggerSchema = new Schema<ITrigger>({
-    triggerData: {
-        id: String,
-        key: String,
-        filters: [String],
-        eventType: String,
-        targetUrl: String
-    },
-    meta: {
-        key: String,
-        version: String
-    },
-    extras: {
-        locationId: String, 
-        workflowId: String, 
-        companyId: String
-    }
-});
-
 const locationSchema = new Schema<ILocation>({
     locationId: String,
     token: tokenSchema,
-    triggers: [triggerSchema]
 });
 
 export const Location = model<ILocation>('Location', locationSchema)
