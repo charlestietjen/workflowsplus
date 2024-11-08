@@ -15,9 +15,12 @@ const webhooks = async (req: Request) => {
                     
                 })
             }
+            default: {
+                return new Response('Trigger type invalid', { status: 400 })
+            }
         }
-    } catch (error) {
-        return new Response('Internal Error', { status: 500 })
+    } catch (_error) {
+        const response = new Response('Internal error', { status: 500 })
     }
 }
 

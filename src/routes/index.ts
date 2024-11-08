@@ -1,3 +1,5 @@
+export { default as webhooks } from '~/routes/webhooks.ts'
+
 const router = (req : Request) => {
     const url = new URL(req.url)
     switch (url.pathname) {
