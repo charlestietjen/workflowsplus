@@ -34,8 +34,14 @@ const tokenSchema = new Schema<IToken>({
 });
 
 const locationSchema = new Schema<ILocation>({
-    locationId: String,
-    token: tokenSchema,
+    locationId: {
+        type: String,
+        required: true
+    },
+    token: {
+        type: tokenSchema,
+        required: true
+    },
 });
 
 export const Location = model<ILocation>('Location', locationSchema)

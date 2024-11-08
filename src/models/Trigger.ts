@@ -21,18 +21,30 @@ interface ITrigger {
 
 const triggerSchema = new Schema<ITrigger>({
     triggerData: {
-        id: String,
-        key: String,
+        id: {
+            type: String,
+            required: true
+        },
+        key: {
+            type: String,
+            required: true
+        },
         filters: [String],
         eventType: String,
-        targetUrl: String
+        targetUrl: {
+            type: String,
+            required: true
+        }
     },
     meta: {
         key: String,
         version: String
     },
     extras: {
-        locationId: String, 
+        locationId: {
+            type: String,
+            required: true
+        }, 
         workflowId: String, 
         companyId: String
     }
