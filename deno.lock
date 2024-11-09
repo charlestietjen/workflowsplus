@@ -1,9 +1,15 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@std/dotenv@*": "0.225.2",
     "npm:@types/node@*": "22.5.4",
     "npm:express@4.21.1": "4.21.1",
     "npm:mongoose@8.7.3": "8.7.3"
+  },
+  "jsr": {
+    "@std/dotenv@0.225.2": {
+      "integrity": "e2025dce4de6c7bca21dece8baddd4262b09d5187217e231b033e088e0c4dd23"
+    }
   },
   "npm": {
     "@mongodb-js/saslprep@1.1.9": {

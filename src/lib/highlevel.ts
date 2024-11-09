@@ -57,8 +57,7 @@ const getToken = async (authorizationCode: string) => {
         };
         const response = await fetch(url, options)
         if (!response.ok) throw new Error("Failed to get token");
-        const data = await response.json();
-        return data.token;
+        return await response.json();
     } catch (error) {
         return error;
     }

@@ -1,6 +1,5 @@
 import { locations, triggers, authorization } from "~/routes/api.ts";
-
-export { default as webhooks } from '~/routes/webhooks.ts'
+import { default as webhooks } from "~/routes/webhooks.ts";
 
 const router = (req : Request) => {
     const url = new URL(req.url)
@@ -14,6 +13,9 @@ const router = (req : Request) => {
         }
         case 'auth': {
             return authorization(req)
+        }
+        case 'webhooks': {
+            return webhooks(req)
         }
         default: {
             return new Response('Not Found', { status: 404 })

@@ -20,10 +20,10 @@ interface ILocation {
 }
 
 const tokenSchema = new Schema<IToken>({
-    access_token: String,
+    access_token: { type: String, required: true },
     token_type: String,
     expires_in: Number,
-    refresh_token: String,
+    refresh_token: { type: String, required: true },
     scope: String,
     userType: String,
     locationId: String,
@@ -38,10 +38,7 @@ const locationSchema = new Schema<ILocation>({
         type: String,
         required: true
     },
-    token: {
-        type: tokenSchema,
-        required: true
-    },
+    token: tokenSchema,
 });
 
 export const Location = model<ILocation>('Location', locationSchema)
