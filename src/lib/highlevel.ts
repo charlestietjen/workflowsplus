@@ -2,7 +2,7 @@ import { Location } from "~/models/Location.ts";
 
 const refreshToken = async (locationId: string) => {
     try {
-        const location = await Location.findOne({ locationId });
+        const location = await Location.findOne({ locationId: locationId });
         if (!location) {
             throw new Error("Location not found");
         }
